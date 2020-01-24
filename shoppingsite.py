@@ -94,11 +94,22 @@ def add_to_cart(melon_id):
     # - check if a "cart" exists in the session, and create one (an empty
     #   dictionary keyed to the string "cart") if not
 
-    if "cart" not in session:
-        cart_dictionary = {}
-        cart_dictionary[melon_id] = 0
-        cart_dictionary[melon_id] += 1
-        print(cart_dictionary)
+    # print(session)
+
+    if "cart" not in session:  # and cart_dictionary.get(melon_id, False) != False:
+
+        session["cart"] = {}
+        # print(session["cart"])
+        session["cart"][melon_id] = 1
+        # print(cart_dictionary)
+        # print(session)
+
+    else:
+        # print(session)
+        session["cart"][melon_id] += 1 
+        # print(session)
+
+
 
 
     # cart_dictionary = session.get("cart", {})
